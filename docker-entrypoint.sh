@@ -2,16 +2,16 @@
 
 if [ -n "$SERVER_CERT" ]
 then
-    echo "Writing certificate to /certs/rcx-server.pem"
+    echo "Writing certificate to /certs/proxy.pem"
     umask 0022
     mkdir /certs
     echo $SERVER_CERT | grep -q ^PARM:
     if [ $? -eq 0 ]
     then
         SERVER_CERT=`echo $SERVER_CERT | sed 's/^PARM://'`
-        aws ssm get-parameter --name $SERVER_CERT --with-decryption --query Parameter.Value --output text > /certs/rcx-server.pem
+        aws ssm get-parameter --name $SERVER_CERT --with-decryption --query Parameter.Value --output text > /certs/proxy.pem
     else
-        echo "$SERVER_CERT" > /certs/rcx-server.pem
+        echo "$SERVER_CERT" > /certs/proxy.pem
     fi
 fi
 
