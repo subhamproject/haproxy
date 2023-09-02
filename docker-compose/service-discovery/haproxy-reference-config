@@ -1,0 +1,25 @@
+resolvers docker
+    nameserver dns 127.0.0.11:53
+
+frontend default
+    bind *:80
+    default_backend nginx
+
+backend nginx
+    balance leastconn
+    option httpchk GET /
+    server-template nginx- 10 nginx:80 resolvers docker init-addr libc resolve-prefer ipv4,none check inter 30s
+
+
+
+
+
+=======================================================
+
+https://stackoverflow.com/questions/70907192/dynamic-discovery-docker-compose
+
+https://stackoverflow.com/questions/68967624/how-to-access-docker-compose-created-replicas-in-haproxy-config
+
+https://stackoverflow.com/questions/69811682/how-to-properly-configure-haproxy-in-docker-swarm-to-automatically-route-traffic
+
+https://github.com/taoxuau/docker-haproxy/blob/master/docker-compose.yml
