@@ -1,0 +1,12 @@
+version : '3.9'
+
+services:
+    lb:
+        image: haproxy
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./:/usr/local/etc/haproxy
+
+    nginx:
+        image: nginx
