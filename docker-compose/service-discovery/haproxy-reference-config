@@ -23,3 +23,5 @@ https://stackoverflow.com/questions/68967624/how-to-access-docker-compose-create
 https://stackoverflow.com/questions/69811682/how-to-properly-configure-haproxy-in-docker-swarm-to-automatically-route-traffic
 
 https://github.com/taoxuau/docker-haproxy/blob/master/docker-compose.yml
+
+https://sleeplessbeastie.eu/2022/11/02/how-to-ensure-that-haproxy-keep-up-with-docker-name-resolution/
